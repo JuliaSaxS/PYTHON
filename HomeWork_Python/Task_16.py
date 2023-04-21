@@ -12,10 +12,10 @@
 N = int(input('Enter the number of elements in the array: '))
 enter_N = input('Enter the array elements (using a space between the numbers): ').split()
 arr = list(map(int, enter_N))
-if len(enter_N) != N:
+if len(enter_N) != N or N == 0:
     print('Input error.')
 else:
-    X = int (input('Enter the number X: '))
+    X = int(input('Enter the desired number: '))
     count = 0
     for i in range(N):
         if arr[i] == X:
