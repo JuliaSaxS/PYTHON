@@ -34,6 +34,4 @@ if N == 0:
 elif N == 1:
     print('The cost of this word', sum([k for i in word for k, v in rus.items() if i in v]), 'points.')
 elif N != 0 or N != 1:
-	print('Input error.')    
-
-    
+	print('Input error.')
