@@ -76,14 +76,10 @@ def search():
             print(line)
     if flag: print('Введенных данных нет в справочнике')
     
-def creating ():
-    with open ('Phonebook.csv', 'w', encoding = 'utf-8') as data:
-        data.write(f'| Фамилия | Имя | Отчество | Номер телефона | Описание |\n')
-    
 def writing_scv_txt():
-    info = gi()
-    with open ('Phonebook.csv', 'a', encoding = 'utf-8') as data:
-        data.write(f'| {info[0]} | {info[1]} | {info[2]} | {info[3]} | {info[4]} |\n')
+    info = get_info()
+    with open('Phonebook.csv', 'a', encoding = 'utf-8') as data:
+        data.write(f'\n| {info[0]} | {info[1]} | {info[2]} | {info[3]} | {info[4]} |\n')
     with open ('Phonebook.txt', 'a', encoding = 'utf-8') as data:
         data.write(f'Фамилия: {info[0]}\nИмя: {info[1]}\nОтчество: {info[2]}\nНомер телефона: {info[3]}\nОписание: {info[4]}\n\n')
     
@@ -187,9 +183,15 @@ def rewrite_change():
         for i in range(len(list2)):
             data.write(list2[i])
         data.close()
-        
-valid = exists('Phonebook.csv')
-if not valid:
-    creating()
+
+path = 'Phonebook.txt'
+
+try:                        
+    file = open(path, 'r')  
+except IOError:             
+    print('A new phone directory has been created -> Phonebook.txt')
+    file = open(path, 'w')
+finally:                    
+    file.close()
 
 show_main_menu()
