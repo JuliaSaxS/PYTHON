@@ -15,13 +15,13 @@ def show_main_menu():
           "6: Выход\n**********************")
     command = input("Команда: >  ")
     if command == "1":
-        pbfile = open('Phonebook.csv', "r+", encoding = 'utf-8')
-        file_contents = pbfile.read()
+        file = open('Phonebook.csv', "r+", encoding = 'utf-8')
+        file_contents = file.read()
         if len(file_contents) == 0:
             print("данных еще не сохранены!")
         else:
             print (file_contents)
-        pbfile.close
+        file.close
         user_entry = input("Нажмите Enter, чтобы вернуться в главное меню ...")
         show_main_menu()
     elif command == "2":
